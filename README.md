@@ -1,1 +1,1 @@
-Hasło: admim
+Hasło: admin
