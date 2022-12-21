@@ -1,0 +1,34 @@
+library(plotly)
+
+radius <- 1 
+height <- 2 
+n <- 100 
+
+starradius <- 0.2
+starangles <- c(pi/2, 2.82743, 4.08407, 5.3407, 0.3141592)
+starx <- c(0,0,0,0,0)
+stary <- starradius*cos(starangles)
+starz <- starradius*sin(starangles)
+
+stardf <- data.frame(x=starx, y = stary, z = starz)
+plot_ly(stardf, x=~x, y=~y, z=~z)
+
+
+
+
+
+angles <- seq(0, 2*pi, length.out = n)
+anglesxy <- c((angles+pi/2), angles, (angles+pi), (angles+3*pi/2))
+
+htemp <- seq(2,0, length.out = n)
+radiusvec <- 0.5*htemp
+x1 <- radiusvec * cos(anglesxy)
+y1 <- radiusvec * sin(anglesxy)
+z1 <- height * angles / (2*pi)
+typetree <- "tree"
+
+
+df <- data.frame(x = c(x1,x2), y = c(y1,y2), z = c(z1,z2))
+
+dftest <- data.frame(x = x1, y = y1, z = z1)
+plot_ly(dftest, x = ~x, y = ~y, z = ~z, mode = "markers", color="#00A52A")
